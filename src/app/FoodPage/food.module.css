@@ -1,0 +1,281 @@
+
+.Container {
+    padding: 8vh;
+    opacity: 0;
+    animation: .3s pageChange .5s linear forwards;
+    cursor: auto;
+    position: relative;
+}
+
+
+@keyframes pageChange {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.HeaderHours {
+    position: relative;
+    text-align: right;
+    margin-top: 100px;
+    font-family: var(--font-mono);
+    font-size: .8rem;
+}
+
+.Header_caption {
+    position: absolute;
+    left: 0;
+    top: 0;
+    writing-mode: vertical-rl;
+    color: rgba(0, 0, 0, 0.58);
+}
+
+.Header_caption:after {
+    content: "\21E2";
+    display: inline;
+    margin: .5rem;
+
+}
+
+.HeaderNameAndPhoto {
+    position: relative;
+    font-size: 10rem;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    line-height: 1;
+
+}
+
+.HeaderNameAndPhoto img {
+    margin-right: 3rem;
+    height: 50vh;
+    width: 39vh;
+    object-position: center;
+    object-fit: cover;
+}
+
+.HeaderPhotoCaption {
+    position: absolute;
+    font-size: 3rem;
+    top: -2rem;
+    right: 0;
+}
+
+
+.ProductsGrid {
+    position: relative;
+    display: grid;
+    margin: 2rem 0 4rem;
+    gap: 3rem;
+    row-gap: 4rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.ProductCaption {
+    font-family: var(--font-mono);
+    font-size: .8rem;
+}
+
+.ProductName {
+    margin-top: 1.5rem;
+    font-family: var(--font-romano);
+    font-size: 1.6rem;
+}
+
+.PhotoOverlay {
+    position: absolute;
+    background: black;
+    transition: background-image 0s, opacity .6s;
+    display: block;
+    opacity: 0;
+    width: 350px;
+    height: 0;
+    padding-bottom: 35%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+@keyframes rectangle-dance {
+    0% {
+        background-position: 0px 0px, 0px 0px, 0px 100%, 0px 100%;
+
+    }
+    100% {
+        background-position: 91% 0px, 91% 0px, 91% 100%, 91% 100%;
+
+    }
+}
+
+
+.AnimatedSection {
+    position: relative;
+    background: linear-gradient(-45deg, transparent 67%, black 68%, transparent 25%),
+    linear-gradient(45deg, transparent 65%, black 68%, transparent 35%), linear-gradient(-45deg, transparent 67%, black 68%, transparent 35%),
+    linear-gradient(45deg, transparent 67%, black 68%, transparent 35%);
+    background-size: 80px 40px, 80px 40px, 80px 43px, 80px 43px;
+    background-position: 0px 0px, 0px 0px, 0px 100%, 0px 100%;
+    background-repeat: repeat-x;
+    animation: rectangle-dance 15s linear infinite;
+    text-align: center;
+    letter-spacing: 1px;
+    height: fit-content;
+    width: 100%;
+    padding: 100px;
+    margin-bottom: 6rem;
+}
+
+
+
+.AnimatedSectionleftSushi {
+    transform: rotate(90deg);
+    position: absolute;
+    width: fit-content;
+    left: 10%;
+    top: 25%;
+    animation: jump-up-down 2.5s infinite ease-out;
+}
+
+.AnimatedSectionRightSushi {
+    transform: rotate(-90deg) translateX(-50px);
+    position: absolute;
+    height: fit-content;
+    right: 10%;
+    top: 25%;
+    animation: jump-up-down-right 2.5s infinite ease-out;
+}
+
+
+@keyframes jump-up-down {
+    50% {
+        transform: rotate(90deg) translateX(50px);
+    }
+    100% {
+        transform: rotate(90deg) translateX(0px);
+    }
+}
+
+@keyframes jump-up-down-right {
+    50% {
+        transform: rotate(-90deg) translateX(0px);
+    }
+    100% {
+        transform: rotate(-90deg) translateX(-50px);
+    }
+}
+
+.AnimatedText {
+    font-size: 5rem;
+    max-width: 400px;
+    min-width: 300px;
+    margin: 0 auto;
+}
+
+.AnimatedCaption {
+    font-family: var(--font-mono);
+    margin-top: 1rem;
+    min-width: 300px;
+
+    font-size: .8rem;
+}
+
+
+@media (max-width: 770px) {
+    .Container{
+        width: 100vw;
+    }
+}
+
+
+@media (max-width: 770px) {
+    .AnimatedSection{
+        padding: 250px 0;
+    }
+    .AnimatedText{
+        font-size: 3rem;
+    }
+
+    .AnimatedSectionleftSushi{
+        top: 40px;
+        left: 50%;
+    }
+    .AnimatedSectionRightSushi{
+        top: 420px;
+        right: 50%
+
+    }
+
+    .ScaleSvg{
+        position: relative;
+        transform: scale(.6) translateY(80%);
+        width: 150px;
+    }
+
+    .ProductsGrid{
+        grid-template-columns: 1fr;
+    }
+
+    .HeaderNameAndPhoto{
+        flex-direction: column;
+        font-size: 3rem;
+        gap: 1rem;
+    }
+    .HeaderNameAndPhoto img{
+        width: 100%;
+        height: 100%;
+    }
+    .HeaderPhotoCaption{
+        top: 95%;
+        right: -10%;
+        height: fit-content;
+    }
+    .Container{
+        padding: 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
