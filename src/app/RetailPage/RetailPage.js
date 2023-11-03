@@ -158,7 +158,7 @@ export default function RetailPage() {
 
                 {products.map((product, id) => {
 
-                    return <div className={css.pointer}
+                    return <div key={id} className={css.pointer}
                                 onMouseEnter={() => handleMouseEnter(id)}
                                 onMouseLeave={handleMouseLeave}>
                         <div className={css.ProductCaption}>

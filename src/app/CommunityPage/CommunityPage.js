@@ -117,7 +117,7 @@ export default function CommunityPage() {
                     <div className={css.SingleFeatureText}>
                         <span>
                             <span className={css.SingleFeatureInnerSpan}>
-                                CSM Community - Joe's Steam Rice Rolls
+                                CSM Community - Joe&apos;s Steam Rice Rolls
                             </span>
                         </span>
                     </div>
@@ -178,7 +178,7 @@ export default function CommunityPage() {
                     </div>
                     <div>
                         <div>10/09</div>
-                        <div>Challenge Cup MVP Kristen Hamilton and NC Courage's Tyler Lussi Interviews + Saying
+                        <div>Challenge Cup MVP Kristen Hamilton and NC Courage&apos;s Tyler Lussi Interviews + Saying
                             Farewell to
                             USWNT Legends + NWSL Predictions
                         </div>

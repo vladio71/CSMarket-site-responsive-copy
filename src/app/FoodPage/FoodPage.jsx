@@ -124,7 +124,7 @@ export default function FoodPage() {
                         Chinese Classics
                     </div>
                     <div className={css.ProductName}>
-                        Joe's Rice and Noodles
+                        Joe&apos;s Rice and Noodles
                     </div>
                 </div>
                 <div className={css.pointer}
@@ -135,7 +135,7 @@ export default function FoodPage() {
                         Cantonese Steamed Rice Rolls
                     </div>
                     <div className={css.ProductName}>
-                        Joe's Steam Rice Roll
+                        Joe&apos;s Steam Rice Roll
                     </div>
                 </div>
 
