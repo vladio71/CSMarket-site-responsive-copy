@@ -139,7 +139,7 @@
 .AnimatedSectionleftSushi {
     transform: rotate(90deg);
     position: absolute;
-    width: fit-content;
+    width: 150px;
     left: 10%;
     top: 25%;
     animation: jump-up-down 2.5s infinite ease-out;
@@ -148,7 +148,8 @@
 .AnimatedSectionRightSushi {
     transform: rotate(-90deg) translateX(-50px);
     position: absolute;
-    height: fit-content;
+    height: 150px;
+    width: 150px;
     right: 10%;
     top: 25%;
     animation: jump-up-down-right 2.5s infinite ease-out;
