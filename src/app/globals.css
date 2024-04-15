@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 @value --font-mono: 'Roboto Mono', monospace;
 
@@ -41,7 +41,7 @@ body::-webkit-scrollbar {
 }
 
 * {
-    transition: .6s;
+    /*transition: .6s;*/
     box-sizing: border-box;
 }
 

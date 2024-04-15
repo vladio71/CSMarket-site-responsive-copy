@@ -23,7 +23,30 @@
     display: inline-block;
     position: sticky;
     left: 4vw;
+    opacity: 0;
     top: 6vw;
+}
+
+.headerLogo svg{
+    /*margin-top: -55px;*/
+    opacity: 0;
+    transform: translateX(-130%);
+    animation: .4s slide-in ease-in-out forwards;
+    /*margin-bottom: 60px;*/
+
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translate(-130%, -100%);
+    }
+    20%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0%) scale(1.15);
+    }
 }
 
 
@@ -34,9 +57,22 @@
 }
 
 .inViewport {
-    opacity: 1 !important;
+    animation: 1.5s fade-in;
+    /*opacity: 1 !important;*/
+    animation-fill-mode: forwards;
 }
 
+@keyframes fade-in {
+    from{
+        opacity: 0;
+        transform: translate3d(0px, 0px, 0px);
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0px, 0px, 0px);
+
+    }
+}
 
 .heading {
     font-size: 5rem;
@@ -47,13 +83,12 @@
 
 .spaceBackground {
 
-    transition: 2s;
+    transition: .9s;
+    /*transition: 5s ease-out;*/
     position: relative;
     margin-left: -8vh;
     left: 0;
     width: calc(100% + 16vh);
-    /*height: 100vh;*/
-    height: 0;
     padding-top: 80.64%;
     background: url("https://images.pexels.com/photos/3952095/pexels-photo-3952095.jpeg") no-repeat;
     opacity: 0;
@@ -199,7 +234,7 @@
 .LocationFlex :nth-child(1) {
     font-size: 2rem;
     text-align: center;
-    padding: 110px 20px;
+    /*padding: 110px 20px;*/
 }
 
 .LocationFlex > * {
@@ -209,13 +244,20 @@
 }
 
 .roundRunningBorder {
+    position: relative;
     background: linear-gradient(90deg, #000000 50%, transparent 50%), linear-gradient(90deg, #000000 50%, transparent 50%), linear-gradient(0deg, #000000 50%, transparent 50%), linear-gradient(0deg, #000000 50%, transparent 50%);
     background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
     background-size: 25px 1px, 25px 1px, 1px 25px, 1px 25px;
     background-position: 0px 0px, 12px 100%, 0px 12px, 100% 0px;
-    animation: long-round-border-dance 12s infinite linear;
+    animation: long-round-border-dance 10s infinite linear;
     animation-play-state: paused;
     padding: 100px 0;
+}
+.roundRunningBorder img {
+    object-fit: cover;
+    filter: grayscale(100%);
+    height: 100%;
+    padding: 2px;
 }
 
 .roundRunningBorder:hover {
@@ -404,7 +446,7 @@
     }
 
     .LocationFlex :nth-child(1) {
-        padding: 140px 0;
+        /*padding: 140px 0;*/
     }
 
 
@@ -452,9 +494,27 @@
         display: none;
     }
 
+    .modalItem{
+        position: absolute;
+        height: 50%;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .modalItem span{
+        transform: rotate(-45deg);
+    }
+    .modalItem:nth-child(2)> span,
+    .modalItem:nth-child(3)> span
+    {
+        transform: rotate(45deg);
+    }
+
     .ModalNavigationGrid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        /*display: grid;*/
+        position: relative;
+        /*grid-template-columns: 1fr 1fr;*/
         height: 80vh;
         cursor: pointer;
         font-family: var(--font-mono);
@@ -474,44 +534,60 @@
     }
 
     .ModalNavigationGrid > div:nth-child(1) {
+        left: 0;
+        top: 0;
         background: white;
         opacity: 0;
-        animation: .1s fade-in 0s ease-in-out forwards;
+        animation: .3s fade-in 0s forwards;
+        animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
+
     }
 
-    .ModalNavigationGrid > div:nth-child(1) > * {
-        transform: translate(20vw, 20vh) rotate(-45deg);
-    }
+    /*.ModalNavigationGrid > div:nth-child(1) > * {*/
+    /*    transform: translate(20vw, 20vh) rotate(-45deg);*/
+    /*}*/
 
     .ModalNavigationGrid :nth-child(2) {
+        right: 0;
+        top: 0;
         background: var(--light-blue);
         opacity: 0;
-        animation: .1s fade-in .1s ease-in-out forwards;
+        animation: .3s fade-in .15s forwards;
+        animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
+
     }
 
-    .ModalNavigationGrid > div:nth-child(2) > * {
-        transform: translate(20vw, 20vh) rotate(45deg);
-    }
+    /*.ModalNavigationGrid > div:nth-child(2) > * {*/
+    /*    transform: translate(20vw, 20vh) rotate(45deg);*/
+    /*}*/
 
     .ModalNavigationGrid :nth-child(3) {
+        bottom: 0;
+        left: 0;
         background: var(--light-red);
         opacity: 0;
-        animation: .1s fade-in .2s ease-in-out forwards;
+        animation: .3s fade-in .3s forwards;
+        animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
+
     }
 
-    .ModalNavigationGrid > div:nth-child(3) > * {
-        transform: translate(20vw, 20vh) rotate(45deg);
-    }
+    /*.ModalNavigationGrid > div:nth-child(3) > * {*/
+    /*    transform: translate(20vw, 20vh) rotate(45deg);*/
+    /*}*/
 
     .ModalNavigationGrid :nth-child(4) {
+        bottom: 0;
+        right: 0;
         background: var(--light-orange);
         opacity: 0;
-        animation: .1s fade-in .3s ease-in-out forwards;
+        animation: .3s fade-in .45s forwards;
+        animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
+
     }
 
-    .ModalNavigationGrid > div:nth-child(4) > * {
-        transform: translate(15vw, 18vh) rotate(-45deg);
-    }
+    /*.ModalNavigationGrid > div:nth-child(4) > * {*/
+    /*    transform: translate(15vw, 18vh) rotate(-45deg);*/
+    /*}*/
 
     .ModalNavigationGrid :nth-child(n) > * {
         text-align: center;
@@ -526,7 +602,8 @@
     .ModalNavigationInfo {
         padding: 2rem;
         opacity: 0;
-        animation: .1s fade-in .4s ease-in-out forwards;
+        animation: .3s fade-in .6s forwards;
+        animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
     }
 
     .ModalNavigationInfo > * {

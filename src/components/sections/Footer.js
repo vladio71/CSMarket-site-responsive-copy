@@ -1,4 +1,4 @@
-import css from "../About/about.module.css";
+import css from "../layouts/About/about.module.css";
 import {BsPencil} from "react-icons/bs";
 import {FiFacebook, FiInstagram} from "react-icons/fi";
 

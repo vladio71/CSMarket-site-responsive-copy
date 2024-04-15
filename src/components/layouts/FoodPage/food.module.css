@@ -8,6 +8,7 @@
 }
 
 
+
 @keyframes pageChange {
     from {
         opacity: 0;
@@ -20,17 +21,19 @@
 .HeaderHours {
     position: relative;
     text-align: right;
-    margin-top: 100px;
+    margin-top: 80px;
     font-family: var(--font-mono);
     font-size: .8rem;
 }
 
 .Header_caption {
     position: absolute;
+    font-size: 18px;
     left: 0;
     top: 0;
     writing-mode: vertical-rl;
-    color: rgba(0, 0, 0, 0.58);
+    color: rgba(0, 0, 0, 0.35);
+    margin-bottom: 2rem;
 }
 
 .Header_caption:after {
@@ -43,11 +46,14 @@
 .HeaderNameAndPhoto {
     position: relative;
     font-size: 10rem;
-    margin-top: 4rem;
+    margin-top: 5.5rem;
     display: flex;
     justify-content: space-between;
     line-height: 1;
 
+}
+.HeaderNameAndPhoto>div:nth-child(2){
+    position: relative;
 }
 
 .HeaderNameAndPhoto img {
@@ -56,6 +62,16 @@
     width: 39vh;
     object-position: center;
     object-fit: cover;
+    opacity: 0;
+    animation: .4s fade-in .9s ease-in-out forwards;
+}
+@keyframes fade-in {
+    from{
+        opacity: 0,
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 .HeaderPhotoCaption {
@@ -91,18 +107,19 @@
 }
 
 .PhotoOverlay {
-    position: absolute;
+    position: fixed;
     background: black;
     transition: background-image 0s, opacity .6s;
     display: block;
     opacity: 0;
     width: 350px;
-    height: 0;
-    padding-bottom: 35%;
+    /*height: 0;*/
+    padding-bottom: 25%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: -1;
+    animation-timing-function: ease-in-out;
 }
 
 @keyframes rectangle-dance {
@@ -140,9 +157,10 @@
     transform: rotate(90deg);
     position: absolute;
     width: 150px;
+    height: 150px;
     left: 10%;
     top: 25%;
-    animation: jump-up-down 2.5s infinite ease-out;
+    animation: jump-up-down 2.5s infinite ease-out    ;
 }
 
 .AnimatedSectionRightSushi {
@@ -176,8 +194,9 @@
 
 .AnimatedText {
     font-size: 5rem;
-    max-width: 400px;
-    min-width: 300px;
+    /*max-width: 400px;*/
+    width: 50%;
+    /*min-width: 200px;*/
     margin: 0 auto;
 }
 
@@ -198,6 +217,10 @@
 
 
 @media (max-width: 770px) {
+
+    .PhotoOverlay{
+        padding-bottom: 35%;
+    }
     .AnimatedSection{
         padding: 250px 0;
     }
@@ -207,18 +230,27 @@
 
     .AnimatedSectionleftSushi{
         top: 40px;
-        left: 50%;
+        left: calc(50% - 75px)
+
     }
     .AnimatedSectionRightSushi{
         top: 420px;
-        right: 50%
+        right: calc(50% - 75px)
 
     }
 
     .ScaleSvg{
-        position: relative;
-        transform: scale(.6) translateY(80%);
+        position: absolute;
+        transform: scale(.6);
+        margin: 0 auto;
+        transform-origin: center;
         width: 150px;
+        height: 150px;
+    }
+    .ScaleSvg svg{
+        /*transform: scale(.6);*/
+        display: block;
+        margin: auto;
     }
 
     .ProductsGrid{

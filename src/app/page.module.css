@@ -1,7 +1,16 @@
 
 .Maincontainer {
     position: relative;
-    overflow-x: hidden;
+    height: 100%;
+    /*overflow: hidden;*/
+}
+
+.containerOverlay {
+    position: fixed;
+    /*background: white;*/
+    background: var(--light-blue);
+    inset: 0;
+    z-index: -100;
 }
 
 .fixedFlex {
@@ -17,85 +26,147 @@
     top: 0;
     min-height: 100vh;
     min-width: 3rem;
-    transition: .4s;
+    transition: .4s ease-in-out;
     cursor: pointer;
 
 }
 
 .mainSection {
+    overflow: hidden;
+    opacity: 1 !important;
+    animation: none !important;
     flex: 10;
 }
 
-@media (max-width: 770px) {
 
-    .mainSection {
-        max-width: 100vw;
-        display: block;
-        position: absolute;
-        z-index: 2;
-    }
-}
 
 @keyframes slide-in {
 
     from {
         position: relative;
-        transform: translateY(-100%);
+        transform: translate(0, -100%) translate3d(0px, 0px, 0px) matrix(1, 0, 0, 1, 0, 0);
         opacity: 1;
     }
 
     to {
-        transform: translateY(0);
+        transform: translate(0, 0) translate3d(0px, 0px, 0px) matrix(1, 0, 0, 1, 0, 0);
         opacity: 1;
 
     }
 }
 
 
-
 .fixedFlex > div:nth-child(1) {
     background: white;
+    opacity: 0;
+    animation: .6s slide-in 1.6s;
+    position: sticky;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
+
 }
+
 /**/
 .fixedFlex > div:nth-child(2) {
-    opacity: 0;
     background: var(--light-blue);
-    animation: .4s slide-in 1.3s ease-out;
+    opacity: 0;
+    animation: .6s slide-in 1.4s;
     animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
+    /*animation-timing-function: cubic-bezier(.35, 0.9, 0.65, 0.86);*/
+
 
 }
 
 .fixedFlex > div:nth-child(3) {
     background: var(--light-red);
     opacity: 0;
-    animation: .4s slide-in 1.2s  ease-out;
+    animation: .6s slide-in 1.2s;
+    /*animation: 2s slide-in ease-in-out;*/
     animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
+
+    /*animation-timing-function: cubic-bezier(.35, 0.9, 0.65, 0.86);*/
+    /*transition-timing-function: cubic-bezier(0.3, 0.4, 0.75, 1);*/
+    /*transition-timing-function: cubic-bezier(0.9, 0.1, 0.1, .9);*/
+
 
 }
 
 .fixedFlex > div:nth-child(4) {
-    opacity: 0;
     background: var(--light-orange);
-    animation: .4s slide-in 1s ease-out;
+    opacity: 0;
+    animation: .6s slide-in 1s;
     animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
+
 
 }
 
-.navigationLayout{
+.navigationLayout {
     display: grid;
-    grid-template-rows: 2px 1fr;
+    grid-template-rows: 5rem 1fr;
     height: 90vh;
-    margin-top: 10vh;
+    /*margin-top: 5vh;*/
     justify-content: center;
+    padding: 60px 5px;
+    justify-items: center;
+    /*max-width: 3rem;*/
     font-family: var(--font-mono);
     letter-spacing: 1px;
-
+    width: 60px;
 }
-.navigationLayout :nth-child(2){
+.navigationLayout :nth-child(1){
+    align-self: start;
+    /*margin-left: .5rem;*/
+}
+
+.navigationLayout p {
+    margin-top: 16px;
+}
+.navigationLayout svg {
+    display: block;
+    /*opacity: 0;*/
+    transform: translate(130%, 80%);
+    animation: .4s slide ease-in-out forwards;
+}
+
+@keyframes slide {
+    0%{
+        transform: translate(130%, 80%) scale(1.15);
+    }
+    100%{
+        transform: translate(0%);
+    }
+}
+
+.navigationLayout :nth-child(2) {
     writing-mode: vertical-rl;
-    margin-right: .5rem;
     text-align: center;
-    /*text-orientation: mixed;*/
+    height: fit-content;
+    align-self: center;
+}
+
+.navigationLayout :nth-child(2):first-letter{
+    text-transform: uppercase;
+}
+
+@media (max-width: 770px) {
+
+    .fixedFlex{
+        display: block;
+        height: 0;
+    }
+    .Maincontainer{
+        /*overflow-x: hidden;*/
+
+    }
+    .mainSection {
+        max-width: 100vw;
+        display: block;
+        position: absolute;
+        z-index: 2;
+    }
 }
 
 
