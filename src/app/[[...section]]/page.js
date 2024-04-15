@@ -52,9 +52,11 @@ export default function Page() {
     const isFirstRender = !!context?.cancelAnimation
 
 
+    console.log(route)
+    console.log(params)
     useEffect(() => {
         if (!checkRoute()) {
-            // notFound()
+            notFound()
         }
         if (context.value !== null) {
             setSection(
