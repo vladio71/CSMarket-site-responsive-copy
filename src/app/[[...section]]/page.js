@@ -52,8 +52,6 @@ export default function Page() {
     const isFirstRender = !!context?.cancelAnimation
 
 
-    console.log(route)
-    console.log(params)
     useEffect(() => {
         if (!checkRoute()) {
             notFound()
@@ -83,7 +81,7 @@ export default function Page() {
 
     function checkRoute() {
         let r = route.current
-        return r === "retail" || r === "food" || r === ""|| r === "/" || r === "community"
+        return r === "retail" || r === "food" || r === ""|| r === "index" || r === "community"
     }
 
     function handleChangeMainSection(segment) {
