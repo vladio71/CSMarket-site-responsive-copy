@@ -59,7 +59,7 @@ export default function ModalNavigation({overlay}) {
     }, [unmountDelay])
 
     function handleNavigate(section, node) {
-        if (route.current === section) return
+        if (route.current === section || route.current === "" && section === "/") return
         window.scrollTo(0, 0)
         aboutDiv.current.style.zIndex = '-1'
         foodDiv.current.style.zIndex = '-1'

@@ -54,7 +54,7 @@ export default function Page() {
 
     useEffect(() => {
         if (!checkRoute()) {
-            notFound()
+            // notFound()
         }
         if (context.value !== null) {
             setSection(
@@ -81,7 +81,7 @@ export default function Page() {
 
     function checkRoute() {
         let r = route.current
-        return r === "retail" || r === "food" || r === "" || r === "community"
+        return r === "retail" || r === "food" || r === ""|| r === "/" || r === "community"
     }
 
     function handleChangeMainSection(segment) {
@@ -104,11 +104,11 @@ export default function Page() {
 
     const cancelAnimationStyle =
         useMemo(() =>
-        isFirstRender ? {
-            animation: 'none',
-            opacity: 1
-        } : {}
-        , [isFirstRender])
+                isFirstRender ? {
+                    animation: 'none',
+                    opacity: 1
+                } : {}
+            , [isFirstRender])
 
     const navProps = {
         cancelAnimationStyle,
@@ -126,7 +126,7 @@ export default function Page() {
                     <NavigationPage
                         {...navProps}
                         route={""}
-                        svg={()=><AboutSvg cancelAnimation={!!context.value}/>}
+                        svg={() => <AboutSvg cancelAnimation={!!context.value}/>}
                     >
                         <About isFirstRender={isFirstRender}/>
                     </NavigationPage>
