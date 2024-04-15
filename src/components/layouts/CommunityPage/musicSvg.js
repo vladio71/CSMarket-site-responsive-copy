@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from "next/image";
-import music from "public/images/music.svg";
 
 const MusicSvg = () => {
     return (
@@ -9,7 +8,7 @@ const MusicSvg = () => {
         }}>
             <Image
                 priority
-                src={music}
+                src={"/images/music.svg"}
                 width={150}
                 height={150}
                 alt="music image"

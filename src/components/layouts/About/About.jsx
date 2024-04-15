@@ -7,7 +7,6 @@ import {BsPencil} from "react-icons/bs";
 import {FiFacebook, FiInstagram} from "react-icons/fi";
 import Image from "next/image";
 import AboutSvg from "@/components/svgs/aboutSvg";
-import locationImage from "public/images/location.png"
 
 
 export default function About({isFirstRender}) {
@@ -130,7 +129,7 @@ export default function About({isFirstRender}) {
                 </div>
                 <div className={css.roundRunningBorder}>
 
-                    <Image src={locationImage} fill={true}/>
+                    <Image src={"/images/location.png"} fill={true}/>
                 </div>
             </section>
             <section>
