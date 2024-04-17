@@ -7,7 +7,7 @@ import FoodPage from "../../components/layouts/FoodPage/FoodPage";
 import RetailPage from "../../components/layouts/RetailPage/RetailPage";
 import CommunityPage from "../../components/layouts/CommunityPage/CommunityPage";
 import ModalNavigation from "../../components/sections/ModalNavigation";
-import {notFound, useParams} from "next/navigation";
+import {notFound, useParams, usePathname} from "next/navigation";
 import {useRouter} from 'next/navigation'
 import {AppContext} from "@/providers/contextProvider";
 import AboutSvg from "@/components/svgs/aboutSvg";
@@ -21,8 +21,9 @@ import AboutSvg from "@/components/svgs/aboutSvg";
 // }
 
 
-export function getRoute(params) {
-    return params?.section ? params.section[0] : ""
+export function getRoute(pathname) {
+    return pathname.slice(1)
+
 }
 
 export function getBackground(route) {
@@ -42,14 +43,14 @@ export function getBackground(route) {
 export default function Page() {
     const context = useContext(AppContext);
     const router = useRouter()
-    const params = useParams()
-    const route = useRef(getRoute(params))
+    const pathname = usePathname()
+    const route = useRef(getRoute(pathname))
     const overlayRef = useRef()
     const mountRef = useRef(true)
     const [section, setSection] = useState(
         context.value !== null ? context.value : route.current
     )
-    const isFirstRender = !!context?.cancelAnimation
+    const isFirstRender = !!context.cancelAnimation
 
 
     useEffect(() => {
@@ -57,9 +58,6 @@ export default function Page() {
             notFound()
         }
         if (context.value !== null) {
-            setSection(
-                route.current
-            )
             setTimeout(() => {
                 setSection(
                     route.current
@@ -68,20 +66,12 @@ export default function Page() {
             mountRef.current = false
         }
 
-        function clearSession() {
-            sessionStorage.removeItem('preventAnimation');
-        }
-
-        window.addEventListener('beforeunload', clearSession)
-        return () => {
-            window.removeEventListener('beforeunload', clearSession)
-        }
     }, [])
 
 
     function checkRoute() {
         let r = route.current
-        return r === "retail" || r === "food" || r === ""|| r === "index" || r === "community"
+        return r === "retail" || r === "food" || r === "" || r === "community"
     }
 
     function handleChangeMainSection(segment) {
@@ -169,33 +159,50 @@ function NavigationPage({
     children,
 }) {
 
+    const context = useContext(AppContext);
+    const svgDiv = useRef();
+
+    const svgTransition = section === route ? {
+        left: '3.5rem',
+        transform: 'scale(1.1)',
+        opacity: !(!!context?.cancelAnimation)? 0 : 1
+    }: {}
     return (
-        <div onClick={() => handleChangeMainSection(route)}
-             className={`${section !== route || css.mainSection}`}
-             style={cancelAnimationStyle}
-        >
-            {section === route ?
-                <>
-                    {children}
-                </>
-                :
-                <div className={css.navigationLayout}>
-                    {svg &&
-                        <div>
-                            {svg()}
-                        </div>
-                    }
-                    {caption &&
-                        <p>
-                            {caption}
-                        </p>
-                    }
-                    <div>
-                        {route && route}
+        <>
+            <div onClick={() => handleChangeMainSection(route)}
+                 className={`${section !== route || css.mainSection}`}
+                 style={cancelAnimationStyle}
+            >
+                {svg &&
+                    <div className={css.navSvg}
+                         ref={svgDiv}
+                         data-inviewport={!(!!context?.cancelAnimation) ? "fade-in" : "false"}
+                        style={svgTransition}
+                    >
+                        {svg()}
                     </div>
-                </div>
-            }
-        </div>
+                }
+                {section === route ?
+                    <>
+                        {children}
+                    </>
+                    :
+                    <>
+                        <div className={css.navigationLayout}>
+
+                            {caption &&
+                                <p>
+                                    {caption}
+                                </p>
+                            }
+                            <div>
+                                {route && route}
+                            </div>
+                        </div>
+                    </>
+                }
+            </div>
+        </>
     )
 }
 

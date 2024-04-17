@@ -1,7 +1,7 @@
 import css from "../layouts/About/about.module.css";
 import {FiFacebook, FiInstagram} from "react-icons/fi";
 import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
-import {useParams, useRouter} from "next/navigation";
+import {useParams, usePathname, useRouter} from "next/navigation";
 import {getBackground, getRoute} from "@/app/[[...section]]/page";
 import {AppContext} from "@/providers/contextProvider";
 
@@ -13,7 +13,7 @@ export default function ModalNavigation({overlay}) {
     const [unmountDelay, setUnmountDelay] = useState(false)
     const context = useContext(AppContext);
     const router = useRouter()
-    const params = useParams()
+    const pathname = usePathname()
     const icon = useRef(null)
     const aboutDiv = useRef(null)
     const retailDiv = useRef(null)
@@ -22,7 +22,7 @@ export default function ModalNavigation({overlay}) {
     const overlayRef = useRef(null)
     const modal = useRef(null)
     const mounted = useRef(false)
-    const route = useRef(getRoute(params))
+    const route = useRef(getRoute(pathname))
 
 
     useEffect(() => {

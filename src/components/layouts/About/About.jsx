@@ -2,15 +2,17 @@
 
 import '../../../app/globals.css'
 import css from './about.module.css'
-import {useEffect} from "react";
+import {useContext, useEffect, useState} from "react";
 import {BsPencil} from "react-icons/bs";
 import {FiFacebook, FiInstagram} from "react-icons/fi";
 import Image from "next/image";
 import AboutSvg from "@/components/svgs/aboutSvg";
+import {AppContext} from "@/providers/contextProvider";
 
 
 export default function About({isFirstRender}) {
 
+    const context = useContext(AppContext);
 
     useEffect(() => {
 
@@ -45,16 +47,19 @@ export default function About({isFirstRender}) {
     }, [])
 
 
-    return (
+
+    console.log("context:" ,context.value)
+     return (
         <main id={'scrollArea'} className={css.container}>
-            <div className={css.headerLogo}
-                 data-inviewport={!isFirstRender?"fade-in":"false"}
-                 style={{
-                     opacity: !isFirstRender? 0: 1
-                 }}
-            >
-                <AboutSvg cancelAnimation={!isFirstRender}/>
-            </div>
+            {/*<div className={css.headerLogo}*/}
+            {/*     data-inviewport={!isFirstRender ? "fade-in" : "false"}*/}
+            {/*     // style={{*/}
+            {/*     //     opacity: !isFirstRender ? 0 : 1*/}
+            {/*     // }}*/}
+            {/*    style={style}*/}
+            {/*>*/}
+            {/*    <AboutSvg cancelAnimation={!isFirstRender || context.value === ""}/>*/}
+            {/*</div>*/}
             <header className={css.header} data-delayed={'fade-in'}>
                 <h1>
                     Canal Street Market is a carefully curated retail market, food hall & community space open
