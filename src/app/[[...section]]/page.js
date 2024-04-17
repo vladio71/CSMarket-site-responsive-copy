@@ -13,12 +13,6 @@ import {AppContext} from "@/providers/contextProvider";
 import AboutSvg from "@/components/svgs/aboutSvg";
 
 
-// export default function Home() {
-//     return (
-//         <Layout/>
-//     )
-//
-// }
 
 
 export function getRoute(pathname) {
@@ -164,7 +158,8 @@ function NavigationPage({
 
     const svgTransition = section === route ? {
         left: '3.5rem',
-        transform: 'scale(1.1)',
+        position: "fixed",
+        transform: 'scale(1)',
         opacity: !(!!context?.cancelAnimation)? 0 : 1
     }: {}
     return (

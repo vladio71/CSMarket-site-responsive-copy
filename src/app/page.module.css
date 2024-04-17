@@ -130,27 +130,11 @@
     position: absolute;
     left: 0;
     top: 3rem;
-    transition: all .4s, transform .6s;
-    /*opacity: 0;*/
-    /*transform: translate(130%, 80%);*/
-    /*animation: .4s slide ease-in-out forwards;*/
+    transition: all .4s, transform .55s;
+    z-index: 100;
+    transform: scale(.83333);
 }
 
-/*@keyframes slide {*/
-/*    0%{*/
-/*        left: 6rem;*/
-/*        top: 5rem;*/
-/*        transform: scale(1.15) !important;*/
-
-/*        !*transform: translate(130%, 80%) scale(1.15);*!*/
-/*    }*/
-/*    100%{*/
-/*        left: 0;*/
-/*        top: 3rem;*/
-/*        !*transform: none;*!*/
-/*        !*transform: translate(0%);*!*/
-/*    }*/
-/*}*/
 
 .navigationLayout :nth-child(2) {
     writing-mode: vertical-rl;

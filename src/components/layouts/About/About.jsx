@@ -12,8 +12,6 @@ import {AppContext} from "@/providers/contextProvider";
 
 export default function About({isFirstRender}) {
 
-    const context = useContext(AppContext);
-
     useEffect(() => {
 
         function inViewport(entries, observer) {
@@ -56,7 +54,6 @@ export default function About({isFirstRender}) {
                     year-round at 265 Canal Street. Support Small Business this weekend!
                 </h1>
             </header>
-
             <section className={css.spaceBackground}
                      data-inviewport={'fade-in'}
             >
