@@ -1,14 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 
 const AboutSvg = ({cancelAnimation}) => {
-    const svg = useRef(null)
-    console.log("cancelAnimation:", cancelAnimation)
 
-    // const style = cancelAnimation ? {
-    //     animation: "none",
-    //     transform: "none",
-    //     opacity: 1
-    // } : {}
     return (
         <svg ref={svg} xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
             <path fill="currentColor"

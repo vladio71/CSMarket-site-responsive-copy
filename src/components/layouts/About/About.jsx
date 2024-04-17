@@ -48,18 +48,8 @@ export default function About({isFirstRender}) {
 
 
 
-    console.log("context:" ,context.value)
      return (
         <main id={'scrollArea'} className={css.container}>
-            {/*<div className={css.headerLogo}*/}
-            {/*     data-inviewport={!isFirstRender ? "fade-in" : "false"}*/}
-            {/*     // style={{*/}
-            {/*     //     opacity: !isFirstRender ? 0 : 1*/}
-            {/*     // }}*/}
-            {/*    style={style}*/}
-            {/*>*/}
-            {/*    <AboutSvg cancelAnimation={!isFirstRender || context.value === ""}/>*/}
-            {/*</div>*/}
             <header className={css.header} data-delayed={'fade-in'}>
                 <h1>
                     Canal Street Market is a carefully curated retail market, food hall & community space open
